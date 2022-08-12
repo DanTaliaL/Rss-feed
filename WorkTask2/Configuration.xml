@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+	<rss>
+		<link>https://habr.com/rss/interesting/</link>
+		
+		<refresh>60</refresh>
+		
+	</rss>
+
+</configuration>
+<!--http://feeds.bbci.co.uk/russian/rss.xml-->
