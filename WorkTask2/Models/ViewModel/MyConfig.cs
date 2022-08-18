@@ -4,6 +4,7 @@
     {
         public string link { get; set; }
         public string refresh { get; set; }
+        public string ipAddress { get; set; }
 
     }
 }

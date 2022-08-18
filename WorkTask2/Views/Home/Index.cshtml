@@ -4,15 +4,39 @@
 @model IEnumerable<WorkTask2.Models.ViewModel.FeedNews>
 
 
-<div class="text-center">
-    <h1 class="display-4">Welcome </h1>
-    @foreach (var q in Model)
-    {
-        <h3>@q.Title</h3>
-        <p>@q.Description</p>
-        <a href="@q.Link"> Читать далее</a>
-    }
+<div class="text-center row">
 
-    <a href="https://habr.com/rss/interesting/">Ссылка задачи</a>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center">@Model.Select(q => q.ChanelName).FirstOrDefault()</h1>
+
+            @foreach (var q in Model)
+            {
+                <div class="shadow p-3 mb-5 bg-white rounded my-3">
+                    <div class="border-bottom m-3"><a class="text-decoration-none text-black" href="@q.Link"> <h5>@q.Title</h5> </a></div>                 
+                    <p class="text-lg-start text-black-50" >Дата публикации @q.PublicationDate</p>
+                    <p class="text-lg-start">@q.Description  <a class="text-decoration-none" href="@q.Link"> Читать далее</a></p>
+                </div>
+            }
+        </div>
+
+        <div class="col-2">
+            <p>
+                Время обновление страницы @ViewBag.Refresh c.
+            </p>
+            <div class="shadow p-3 mb-5 bg-gradient rounded ">
+                <form class="mx-2 my-2" asp-action="Index">
+                    <label>Новое время обновления</label>
+                    <input class="form-control" name="timer" />
+
+                    <label>Добавить Rss ленту</label>
+                    <input class="form-control" name="link" />
+                    <button class="btn btn-primary my-2" type="submit">Применить</button>
+                </form>
+            </div>
+            
+        </div>
+
+
+    </div>
 </div>
